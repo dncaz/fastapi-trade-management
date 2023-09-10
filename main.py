@@ -232,7 +232,7 @@ for trade in random_trades:
 # Combined endpoint to list trades with filtering and pagination
 @app.get("/trades/", response_model=List[Trade])
 async def list_trades(
-    asset_classes: Optional[List[str]] = Query([], description="List of Assets"),
+    asset_classes: Optional[str] = None,
     start: Optional[datetime] = None,
     end: Optional[datetime] = None,
     min_price: Optional[float] = None,
